@@ -78,9 +78,9 @@ public class FoodRestController {
 
 	}
 	@GetMapping("/{id}")
-	public Food foodView(@PathVariable Integer id)
+	public Food foodView(@PathVariable("id") Integer FoodId)
 	{
-		return foodRepo.findById(id).get();
+		return foodRepo.findById(FoodId).get();
 	}
 
 	@PutMapping("/{id}")
