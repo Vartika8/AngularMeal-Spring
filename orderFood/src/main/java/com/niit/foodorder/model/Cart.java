@@ -16,7 +16,7 @@ public class Cart {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer id;
-	@OneToOne(cascade=CascadeType.ALL)
+	@OneToOne
 	@JoinColumn(name="foodId")
 	private Food food;
 
@@ -29,7 +29,7 @@ public class Cart {
 	private Double price;
 	@Override
 	public String toString() {
-		return "Cart [id=" + id + ", food=" + food + ", customer=" + customer + ", quantity=" + quantity + ", price="
+		return "Cart [id=" + id + ", quantity=" + quantity + ", price="
 				+ price + "]";
 	}
 	public Integer getId() {

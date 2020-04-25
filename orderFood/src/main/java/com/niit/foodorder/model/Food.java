@@ -40,10 +40,8 @@ public class Food {
 @ManyToOne
 @JsonIgnore
 private Restaurant restaurant;
-@ManyToMany(cascade = CascadeType.ALL)
-@JoinTable(name = "food_food_order", joinColumns = {
-		@JoinColumn(referencedColumnName = "id") }, inverseJoinColumns = {
-				@JoinColumn(referencedColumnName = "id") })
+@ManyToMany(mappedBy="food")
+
 @JsonIgnore
 private List<FoodOrder> order;
 @Override

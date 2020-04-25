@@ -65,18 +65,10 @@ public class FoodRestController {
 		}
 		return false;
 	}
-		@PostMapping("/upload")
-		
-		public Food uploadImage(@RequestParam("myFile") MultipartFile file) throws IOException {
-			Food img = new Food(file.getOriginalFilename(),null, file.getContentType(),file.getBytes());
-			final Food savedImage = foodRepo.save(img);
-			System.out.println("Image Saved");
-			return savedImage;
 		
 		
 		
 
-	}
 	@GetMapping("/{id}")
 	public Food foodView(@PathVariable("id") Integer FoodId)
 	{
