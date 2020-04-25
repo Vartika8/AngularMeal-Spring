@@ -40,100 +40,83 @@ public class Food {
 @ManyToOne
 @JsonIgnore
 private Restaurant restaurant;
-
 @ManyToMany(cascade = CascadeType.ALL)
 @JoinTable(name = "food_food_order", joinColumns = {
 		@JoinColumn(referencedColumnName = "id") }, inverseJoinColumns = {
 				@JoinColumn(referencedColumnName = "id") })
 @JsonIgnore
 private List<FoodOrder> order;
-
-public Food(String foodName, Double price, String description, byte[] data) {
+@Override
+public String toString() {
+	return "Food [id=" + id + ", foodName=" + foodName + ", price=" + price + ", description=" + description + ", data="
+			+ Arrays.toString(data) + ", cart=" + cart + ", restaurant=" + restaurant + ", order=" + order + "]";
+}
+public Integer getId() {
+	return id;
+}
+public void setId(Integer id) {
+	this.id = id;
+}
+public String getFoodName() {
+	return foodName;
+}
+public void setFoodName(String foodName) {
+	this.foodName = foodName;
+}
+public Double getPrice() {
+	return price;
+}
+public void setPrice(Double price) {
+	this.price = price;
+}
+public String getDescription() {
+	return description;
+}
+public void setDescription(String description) {
+	this.description = description;
+}
+public byte[] getData() {
+	return data;
+}
+public void setData(byte[] data) {
+	this.data = data;
+}
+public Cart getCart() {
+	return cart;
+}
+public void setCart(Cart cart) {
+	this.cart = cart;
+}
+public Restaurant getRestaurant() {
+	return restaurant;
+}
+public void setRestaurant(Restaurant restaurant) {
+	this.restaurant = restaurant;
+}
+public List<FoodOrder> getOrder() {
+	return order;
+}
+public void setOrder(List<FoodOrder> order) {
+	this.order = order;
+}
+public Food(Integer id, String foodName, Double price, String description, byte[] data, Cart cart,
+		Restaurant restaurant, List<FoodOrder> order) {
 	super();
+	this.id = id;
 	this.foodName = foodName;
 	this.price = price;
 	this.description = description;
 	this.data = data;
-	
+	this.cart = cart;
+	this.restaurant = restaurant;
+	this.order = order;
 }
-
-
 public Food() {
 	super();
 	// TODO Auto-generated constructor stub
 }
 
 
-
-public Integer getId() {
-	return id;
-}
-
-public void setId(Integer id) {
-	this.id = id;
-}
-
-public String getFoodName() {
-	return foodName;
-}
-
-public void setFoodName(String foodName) {
-	this.foodName = foodName;
-}
-
-public Double getPrice() {
-	return price;
-}
-
-public void setPrice(Double price) {
-	this.price = price;
-}
-
-public String getDescription() {
-	return description;
-}
-
-public void setDescription(String description) {
-	this.description = description;
-}
-
-public byte[] getData() {
-	return data;
-}
-
-public void setData(byte[] data) {
-	this.data = data;
-}
-
-public Cart getCart() {
-	return cart;
-}
-
-public void setCart(Cart cart) {
-	this.cart = cart;
-}
-
-public Restaurant getRestaurant() {
-	return restaurant;
-}
-
-public void setRestaurant(Restaurant restaurant) {
-	this.restaurant = restaurant;
-}
-
-public List<FoodOrder> getOrder() {
-	return order;
-}
-
-public void setOrder(List<FoodOrder> order) {
-	this.order = order;
-}
-
-@Override
-public String toString() {
-	return "Food [id=" + id + ", foodName=" + foodName + ", price=" + price + ", description=" + description + ", data="
-			+ Arrays.toString(data) + ", cart=" + cart + ", restaurant=" + restaurant + ", order=" + order + "]";
-}
 
 
 

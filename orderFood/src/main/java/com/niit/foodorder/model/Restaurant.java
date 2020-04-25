@@ -30,8 +30,8 @@ public class Restaurant {
 	@JoinColumn(name="user_id")
 	@JsonIgnore
 	private Users user;
-	@OneToMany(cascade=CascadeType.ALL)
-	@JoinColumn(name="resturant_id")
+	@OneToMany(targetEntity=Food.class,cascade=CascadeType.ALL)
+	@JoinColumn(name="restaurant_id")
 	@JsonIgnore
 	private List<Food> foodList;
 	

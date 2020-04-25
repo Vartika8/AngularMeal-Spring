@@ -24,8 +24,14 @@ public class Cart {
 	@JsonIgnore
 	private Customer customer;
 	
+	
 	private Integer quantity;
 	private Double price;
+	@Override
+	public String toString() {
+		return "Cart [id=" + id + ", food=" + food + ", customer=" + customer + ", quantity=" + quantity + ", price="
+				+ price + "]";
+	}
 	public Integer getId() {
 		return id;
 	}
@@ -55,6 +61,18 @@ public class Cart {
 	}
 	public void setPrice(Double price) {
 		this.price = price;
+	}
+	public Cart(Integer id, Food food, Customer customer, Integer quantity, Double price) {
+		super();
+		this.id = id;
+		this.food = food;
+		this.customer = customer;
+		this.quantity = quantity;
+		this.price = price;
+	}
+	public Cart() {
+		super();
+		// TODO Auto-generated constructor stub
 	}
 	
 	
