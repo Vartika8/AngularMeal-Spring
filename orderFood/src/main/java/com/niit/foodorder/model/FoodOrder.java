@@ -1,5 +1,6 @@
 package com.niit.foodorder.model;
 
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -11,6 +12,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 @Entity
 public class FoodOrder {
@@ -27,8 +30,15 @@ public class FoodOrder {
 	@ManyToOne
 	private Customer customer;
 	
+	private Date orderDate;
 	
 	
+	public Date getOrderDate() {
+		return orderDate;
+	}
+	public void setOrderDate(Date orderDate) {
+		this.orderDate = orderDate;
+	}
 	public Customer getCustomer() {
 		return customer;
 	}

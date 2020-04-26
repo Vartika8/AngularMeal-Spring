@@ -4,6 +4,7 @@ import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -33,13 +34,6 @@ public class UserRestController {
 	
 	
 	
-//	@PostMapping("/registration")
-//	public Map<String,String> registration(@RequestBody Map<String ,String > users)
-//	{
-//		
-//		System.out.println();
-//	}
-	
 	@PostMapping("/addCustomer")
 	public Customer registrationCustomer(@RequestBody Customer customer)
 	{
@@ -48,8 +42,8 @@ public class UserRestController {
 		
 	}
 	
-	@PostMapping("/addrestaurant")
-	public Users registrationRestaurant(@RequestBody Users user) {
+	@PostMapping("/userRegistration")
+	public Users userregistration(@RequestBody Users user) {
       System.out.println("vartika");
 		System.out.println(user.getName());
 		Customer customer = null;
@@ -67,10 +61,7 @@ public class UserRestController {
 		}
 	return user;
 		
-//		Users user=new Users();
-//		user.setName(restaurant.get("name"));
-//		user.setPassword(restaurant.get("password"));
-//		
+		
 		
 	
 	}
@@ -81,6 +72,7 @@ public class UserRestController {
 		return urepo.findByPhoneAndPassword(users.get("phone") ,users.get("password"));
 	}
 	
+
 }
 	
 

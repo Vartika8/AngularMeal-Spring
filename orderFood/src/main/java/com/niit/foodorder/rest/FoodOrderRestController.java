@@ -1,6 +1,7 @@
 package com.niit.foodorder.rest;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,8 +36,10 @@ public class FoodOrderRestController {
 	@PostMapping("/{id}")
 	public List<FoodOrder> order(@PathVariable Integer id) {
 		Customer customer = custrepo.findById(id).get();
+	
 		List<Cart> cartList=cartRepo.findByCustomer(customer);
-			//System.out.println(customer);
+		if(!cartList.isEmpty()) {
+		//System.out.println(customer);
 			Double total = 0.0;
 			FoodOrder order = new FoodOrder();
 			order.setCustomer(customer);
@@ -49,14 +52,13 @@ public class FoodOrderRestController {
 			}
 			cartRepo.deleteAll(cartList);
 			customer.getCartList().clear();
-			
-			
+			order.setOrderDate(new Date());
 			order.setFood(foodList);
 			order.setTotalPrice(total);
 			customer.getFoodOrder().add(orderrepo.save(order));
 			custrepo.save(customer);
-	
-		return orderrepo.findByCustomer(customer);
+		}
+		return orderrepo.findByCustomerOrderByOrderDateDesc(customer);
 	}
 
 }

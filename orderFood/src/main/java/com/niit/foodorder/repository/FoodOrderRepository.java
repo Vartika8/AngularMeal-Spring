@@ -9,6 +9,8 @@ import com.niit.foodorder.model.FoodOrder;
 
 public interface FoodOrderRepository extends JpaRepository<FoodOrder, Integer> {
 
-	List<FoodOrder> findByCustomer(Customer customer);
+	List<FoodOrder> findByCustomerOrderByOrderDateDesc(Customer customer);
+
+
 
 }
