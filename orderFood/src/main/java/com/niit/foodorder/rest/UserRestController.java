@@ -31,21 +31,9 @@ public class UserRestController {
 	@Autowired
 
 	private RestaurantRepository rrepo;
-	
-	
-	
-	@PostMapping("/addCustomer")
-	public Customer registrationCustomer(@RequestBody Customer customer)
-	{
 		
-		return crepo.save(customer);
-		
-	}
-	
 	@PostMapping("/userRegistration")
 	public Users userregistration(@RequestBody Users user) {
-      System.out.println("vartika");
-		System.out.println(user.getName());
 		Customer customer = null;
 		Restaurant restaurant = null;
 		user.setRestaurant(null);
@@ -60,9 +48,6 @@ public class UserRestController {
 			rrepo.save(restaurant);
 		}
 	return user;
-		
-		
-		
 	
 	}
 	
