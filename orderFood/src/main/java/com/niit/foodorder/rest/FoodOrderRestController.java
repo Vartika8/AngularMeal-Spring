@@ -39,7 +39,6 @@ public class FoodOrderRestController {
 	
 		List<Cart> cartList=cartRepo.findByCustomer(customer);
 		if(!cartList.isEmpty()) {
-		//System.out.println(customer);
 			Double total = 0.0;
 			FoodOrder order = new FoodOrder();
 			order.setCustomer(customer);
